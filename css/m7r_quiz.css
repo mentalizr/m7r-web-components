@@ -1,0 +1,159 @@
+
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/m7r-icomoon.eot?l6jwae');
+    src:  url('../fonts/m7r-icomoon.eot?l6jwae#iefix') format('embedded-opentype'),
+    url('../fonts/m7r-icomoon.ttf?l6jwae') format('truetype'),
+    url('../fonts/m7r-icomoon.woff?l6jwae') format('woff'),
+    url('../fonts/m7r-icomoon.svg?l6jwae#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="m7r-mc-icon-"], [class*=" m7r-mc-icon-"], [class^="m7r-mc-icon"], [class*=" m7r-mc-icon"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    position: relative;
+    top: 0.1em;
+}
+
+[class^="m7r-mc-feedback-"], [class*=" m7r-mc-feedback-"] {
+    cursor: default !important;
+    border-radius:2em;
+}
+
+.m7r-mc-one.m7r-mc-state-answering .m7r-mc-option-selected .m7r-mc-icon:before {
+    content: "\ea54";
+}
+
+.m7r-mc-one.m7r-mc-state-answering .m7r-mc-option:not(.m7r-mc-option-selected) .m7r-mc-icon:before {
+    content: "\ea56";
+}
+
+.m7r-mc-one.m7r-mc-state-correct .m7r-mc-icon:before {
+    content: "\ea56";
+}
+
+.m7r-mc-one.m7r-mc-state-show-solution .m7r-mc-icon:before {
+    content: "\ea56";
+}
+
+.m7r-mc-one.m7r-mc-state-incorrect .m7r-mc-icon:before {
+    content: "\ea56";
+}
+
+.m7r-mc-option-validated-correct .m7r-mc-icon:before {
+    content: "\ea10" !important;
+}
+
+.m7r-mc-option-validated-incorrect .m7r-mc-icon:before {
+    content: "\ea0f" !important;
+}
+
+.m7r-mc-multi.m7r-mc-state-answering .m7r-mc-option-selected .m7r-mc-icon:before {
+    content: "\ea52";
+}
+
+.m7r-mc-multi.m7r-mc-state-answering .m7r-mc-option:not(.m7r-mc-option-selected) .m7r-mc-icon:before {
+    content: "\ea53";
+}
+
+.m7r-mc-multi.m7r-mc-state-correct .m7r-mc-icon:before {
+    content: "\ea53";
+}
+
+.m7r-mc-multi.m7r-mc-state-incorrect .m7r-mc-icon:before {
+    content: "\ea53";
+}
+
+.m7r-mc-multi.m7r-mc-state-show-solution .m7r-mc-icon:before {
+    content: "\ea53";
+}
+
+.m7r-mc-state-show-solution .m7r-mc-option-correct .m7r-mc-icon:before {
+    content: "\ea10";
+}
+
+.m7r-mc-option {
+    background-color: #ddd;
+    color: #494949;
+    box-shadow: 0 .1em 0 #b1c5e0;
+}
+
+.m7r-mc-state-answering .m7r-mc-option {
+    cursor: pointer;
+}
+
+.m7r-mc-state-answering .m7r-mc-option:hover {
+    background-color: #ececec;
+}
+
+.m7r-mc-option-selected {
+    background-color: #cee0f4 !important;
+}
+
+.m7r-mc-state-answering .m7r-mc-option-selected:hover {
+    background-color: #e6effc !important;
+}
+
+.m7r-mc-option-validated-correct {
+    background-color: #b6e4ce !important;
+    border-color: #b6e4ce;
+    color: #255c41;
+    box-shadow: 0 .1em 0 #a2bdb0;
+}
+
+.m7r-mc-option-validated-incorrect, .m7r-mc-option-validated-missing {
+    background: #fbd7d8;
+    border-color: #fbd7d8;
+    color: #b71c1c;
+    box-shadow: 0 .1em 0 #deb8b8;
+}
+
+.m7r-mc-icon-fail:before {
+    /*
+    position: relative;
+    top: 0.05em;
+    font-size: 1.2em;
+     */
+    content: "\e9e5";
+}
+
+.m7r-mc-icon-success:before {
+    position: relative;
+    top: 0.05em;
+    font-size: 1.2em;
+    content: "\e9d7";
+}
+
+.m7r-mc-icon-check:before {
+    position: relative;
+    top: 0.05em;
+    font-size: 1.2em;
+    content: "\e900";
+}
+
+.m7r-mc-icon-show:before {
+    position: relative;
+    top: 0.05em;
+    font-size: 1.2em;
+    content: "\e9ce";
+}
+
+.m7r-mc-icon-retry:before {
+    content: "\e984";
+}
+
+
