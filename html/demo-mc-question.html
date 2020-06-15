@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../css/m7r_quiz.css"/>
+    <link rel="stylesheet" href="../css/m7r-web-components.css"/>
 
     <title>mentalizr - web-components - multiple choice demo</title>
 </head>
@@ -14,6 +14,10 @@
 
     <div class="row">
         <div id="main-content" class="col-lg-8 col-md-10 col-sm-12 col-xs-12 mx-auto" style="">
+
+            <p class="h3 mt-4 mb-5">mentalizr - web-components - demo | multiple choice</p>
+
+            <p class="h5">Multiple choice question with one answering option:</p>
 
             <div id="q1" class="m7r-mc-one card mt-4 m7r-mc-state-answering">
                 <div class="card-body">
@@ -48,21 +52,23 @@
                             <span class="m7r-mc-icon-success"></span>
                             <span class="pl-2">Richtig!</span>
                         </div>
-                        <button type="button" class="m7r-mc-button-check btn btn-primary px-3 d-none" style="border-radius:2em;">
+                        <button type="button" class="m7r-mc-button-check btn btn-primary px-3 d-none">
                             <span class="m7r-mc-icon-check"></span>
                             <span class="pl-2">Überprüfen</span>
                         </button>
-                        <button type="button" class="m7r-mc-button-show btn btn-primary px-3 d-none" style="border-radius:2em;">
+                        <button type="button" class="m7r-mc-button-show btn btn-primary px-3 d-none">
                             <span class="m7r-mc-icon-show"></span>
                             <span class="pl-2">Lösung anzeigen</span>
                         </button>
-                        <button type="button" class="m7r-mc-button-retry btn btn-primary px-3 d-none" style="border-radius:2em;">
+                        <button type="button" class="m7r-mc-button-retry btn btn-primary px-3 d-none">
                             <span class="m7r-mc-icon-retry"></span>
                             <span class="pl-2">Wiederholen</span>
                         </button>
                     </div>
                 </div>
             </div>
+
+            <p class="h5 mt-5">Multiple choice question with one or many answering options:</p>
 
             <div id="q2" class="m7r-mc-multi card mt-4 m7r-mc-state-answering">
                 <div class="card-body">
@@ -96,15 +102,15 @@
                             <span class="m7r-mc-icon-success"></span>
                             <span class="pl-2">Richtig!</span>
                         </div>
-                        <button type="button" class="m7r-mc-button-check btn btn-primary px-3 d-none" style="border-radius:2em;">
+                        <button type="button" class="m7r-mc-button-check btn btn-primary px-3 d-none">
                             <span class="m7r-mc-icon-check"></span>
                             <span class="pl-2">Überprüfen</span>
                         </button>
-                        <button type="button" class="m7r-mc-button-show btn btn-primary px-3 d-none" style="border-radius:2em;">
+                        <button type="button" class="m7r-mc-button-show btn btn-primary px-3 d-none">
                             <span class="m7r-mc-icon-show"></span>
                             <span class="pl-2">Lösung anzeigen</span>
                         </button>
-                        <button type="button" class="m7r-mc-button-retry btn btn-primary px-3 d-none" style="border-radius:2em;">
+                        <button type="button" class="m7r-mc-button-retry btn btn-primary px-3 d-none">
                             <span class="m7r-mc-icon-retry"></span>
                             <span class="pl-2">Wiederholen</span>
                         </button>
@@ -118,9 +124,9 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+<!--script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script-->
 <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script -->
 <!-- script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script -->
 

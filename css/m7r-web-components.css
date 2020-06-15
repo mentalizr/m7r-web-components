@@ -34,6 +34,10 @@
     border-radius:2em;
 }
 
+[class^="m7r-mc-button-"], [class*=" m7r-mc-button-"] {
+    border-radius: 2em;
+}
+
 .m7r-mc-one.m7r-mc-state-answering .m7r-mc-option-selected .m7r-mc-icon:before {
     content: "\ea54";
 }
