@@ -1,18 +1,19 @@
 {
-  "name": "m7r-mdp-quiz",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "m7r-web-components",
+  "version": "0.0.1",
+  "description": "web components for the mentalizr web frontend",
+  "main": "js-out/index.js",
+  "types": "js-out/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/mentalizr/m7r-mdp-quiz.git"
+    "url": "git+ssh://git@github.com:mentalizr/m7r-web-components.git"
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/mentalizr/m7r-mdp-quiz#readme",
+  "homepage": "https://github.com/mentalizr/m7r-web-components",
   "dependencies": {
     "@types/bootstrap": "^4.5.0",
     "@types/jquery": "^3.3.38",

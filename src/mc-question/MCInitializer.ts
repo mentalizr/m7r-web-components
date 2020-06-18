@@ -8,15 +8,15 @@ export class MCInitializer {
 
     public static initializeQuestions(): void {
 
-        console.log("Initialize Questions ...");
+        // console.log("Initialize Questions ...");
 
         let questions = Selector.getAllMCs();
 
-        console.log("Found " + questions.length + " mc-questions");
+        // console.log("Found " + questions.length + " mc-questions");
 
         questions.forEach(function (questionElement) {
             let questionModel: QuestionModel = MCInitializer.createQuestionModel(questionElement);
-            questionModel.debugOut();
+            // questionModel.debugOut();
 
             MCInitializer.registerUserEvents(questionModel);
             MCView.updateView(questionModel);
@@ -28,12 +28,12 @@ export class MCInitializer {
 
         const questionId: string = questionElement.id;
 
-        console.log("Initialize question with ID: " + questionId);
+        // console.log("Initialize question with ID: " + questionId);
 
         // const selectorOptions = "#" + questionId + " ." + CSS_CLASS_MC_OPTION;
         // let mc_options = document.querySelectorAll(selectorOptions);
         let mc_options = Selector.getAllOptions(questionId);
-        console.log("Found " + mc_options.length + " options.");
+        // console.log("Found " + mc_options.length + " options.");
 
         let optionIDs: string[] = [];
         mc_options.forEach(function (mcOption) {
@@ -43,7 +43,7 @@ export class MCInitializer {
         // const selectorOptionsCorrect = "#" + questionId + " ." + CSS_CLASS_MC_OPTION + "." + CSS_CLASS_MC_OPTION_CORRECT;
         // let mc_options_correct = document.querySelectorAll(selectorOptionsCorrect);
         let mc_options_correct = Selector.getCorrectOptions(questionId);
-        console.log("Found " + mc_options_correct.length + " correct options.");
+        // console.log("Found " + mc_options_correct.length + " correct options.");
 
         let correctOptionIDs: string[] = [];
         mc_options_correct.forEach(function (mcOptionCorrect) {
@@ -62,7 +62,7 @@ export class MCInitializer {
 
     private static registerUserEvents(questionModel: QuestionModel): void {
 
-        console.log("register user events ...");
+        // console.log("register user events ...");
 
         questionModel.getOptionIDs().forEach(function (optionId) {
 

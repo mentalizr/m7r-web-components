@@ -21,7 +21,7 @@ export class ShowSolutionState extends AbstractState {
     }
 
     buttonRetryClicked(): void {
-        console.log("Button 'retry' clicked for question ID " + this._questionModel.getId());
+        // console.log("Button 'retry' clicked for question ID " + this._questionModel.getId());
 
         this._questionModel.clearSelected();
         this._questionModel.clearQuestionResult();

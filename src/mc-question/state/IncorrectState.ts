@@ -27,7 +27,7 @@ export class IncorrectState extends AbstractState {
     }
 
     buttonRetryClicked(): void {
-        console.log("Button 'retry' clicked for question ID " + this._questionModel.getId());
+        // console.log("Button 'retry' clicked for question ID " + this._questionModel.getId());
 
         this._questionModel.clearSelected();
         this._questionModel.clearQuestionResult();
@@ -36,7 +36,7 @@ export class IncorrectState extends AbstractState {
     }
 
     buttonShowSolutionClicked(): void {
-        console.log("Button 'show solution' clicked for question ID " + this._questionModel.getId());
+        // console.log("Button 'show solution' clicked for question ID " + this._questionModel.getId());
 
         this._questionModel.clearSelected();
         this._questionModel.clearQuestionResult();

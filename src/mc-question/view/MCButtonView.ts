@@ -15,10 +15,10 @@ export class MCButtonView {
 
         let buttonShowSolution: HTMLElement = Selector.getButtonShowSolution(questionModel.getId());
         if (questionModel.isShowButtonShowSolution()) {
-            console.log("Button Show: SHOW");
+            // console.log("Button Show: SHOW");
             MCButtonView.showButton(buttonShowSolution);
         } else {
-            console.log("Button Show: HIDE");
+            // console.log("Button Show: HIDE");
             MCButtonView.hideButton(buttonShowSolution);
         }
 

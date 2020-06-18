@@ -11,12 +11,14 @@ module.exports = {
 
     mode: 'development',
 
-    entry: ['./src/mc-question/MCIndex.ts',
+    entry: ['./src/index.ts',
         './node_modules/bootstrap/dist/js/bootstrap.bundle.js'],
 
     output: {
         filename: 'm7r-web-components.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        libraryTarget: "var",
+        library: 'm7rWebComponents'
     },
 
     // Currently we need to add '.ts' to the resolve.extensions array.

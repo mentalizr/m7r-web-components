@@ -21,7 +21,7 @@ export class AnsweringState extends AbstractState {
 
     optionClicked(optionId: string): void {
 
-        console.log("Option clicked: " + optionId + " QuestionModel: " + this._questionModel.getId());
+        // console.log("Option clicked: " + optionId + " QuestionModel: " + this._questionModel.getId());
 
         if (this._questionModel.isMCTypeOne()) {
             this._questionModel.selectExclusive(optionId);
@@ -36,15 +36,15 @@ export class AnsweringState extends AbstractState {
     }
 
     buttonCheckClicked(): void {
-        console.log("Button 'check' clicked for question ID " + this._questionModel.getId());
+        // console.log("Button 'check' clicked for question ID " + this._questionModel.getId());
 
         const questionResult: QuestionResult = new QuestionResult(this._questionModel);
 
         if (questionResult.isAnsweredCorrectly()) {
-            console.log("Question answered correctly.");
+            // console.log("Question answered correctly.");
             this._questionModel.setState(new CorrectState(this._questionModel, questionResult));
         } else {
-            console.log("Question answered incorrectly.");
+            // console.log("Question answered incorrectly.");
             this._questionModel.setState(new IncorrectState(this._questionModel, questionResult));
         }
 
