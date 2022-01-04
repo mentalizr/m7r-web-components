@@ -3,7 +3,7 @@
 // after https://github.com/webpack/webpack/issues/3460 will be resolved.
 // import * as webpack from "webpack";
 
-const { CheckerPlugin } = require('awesome-typescript-loader');
+// const { CheckerPlugin } = require('awesome-typescript-loader');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -11,8 +11,10 @@ module.exports = {
 
     mode: 'development',
 
-    entry: ['./src/index.ts',
-        './node_modules/bootstrap/dist/js/bootstrap.bundle.js'],
+    entry: [
+        './src/index.ts',
+        './node_modules/bootstrap/dist/js/bootstrap.bundle.js'
+    ],
 
     output: {
         filename: 'm7r-web-components.js',
@@ -21,7 +23,6 @@ module.exports = {
         library: 'm7rWebComponents'
     },
 
-    // Currently we need to add '.ts' to the resolve.extensions array.
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx']
     },
@@ -34,13 +35,36 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                loader: 'awesome-typescript-loader'
+                loader: 'ts-loader'
             }
         ]
     },
 
     devServer: {
-        serveIndex: true,
+        static: [
+            {
+                directory: path.join(__dirname, 'html'),
+                publicPath: '/html',
+                serveIndex: true,
+            },
+            {
+                directory: path.join(__dirname, 'css'),
+                publicPath: '/css',
+                serveIndex: true,
+            },
+            {
+                directory: path.join(__dirname, 'fonts'),
+                publicPath: '/fonts',
+                serveIndex: true,
+            },
+            {
+                directory: path.join(__dirname, 'node_modules/bootstrap/dist/css'),
+                publicPath: '/bootstrap',
+                serveIndex: true,
+            }
+
+        ]
+        // serveIndex: true,
         // contentBase: path.join(__dirname, 'dist')
         // contentBase: './distNew'
     }
