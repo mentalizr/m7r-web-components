@@ -29,10 +29,8 @@ export class MultiAudio {
   //loads the Playlist the Player will play through.
   loadPlaylist() {
     this.playlist = [
-      new AudioTrack('WoW Weltenbeben: Prolog - am Lagerfeuer', 'Fabian', 'MAD VILLANY', './assets/files/wowreading/WowWeltenbeben_Prolog_Fireplace.mp3', 660),
-      new AudioTrack('WoW Weltenbeben: Prolog - im Regen', 'Fabian', 'MAD VILLANY', './assets/files/wowreading/WowWeltenbeben_Prolog_Rain.mp3', 660),
-      new AudioTrack('WoW Weltenbeben: Prolog - im Wald', 'Fabian', 'MAD VILLANY', './assets/files/wowreading/WowWeltenbeben_Prolog_Forest.mp3', 660)]
-    //this.playlist = playlist;
+      new AudioTrack('Klavier', 'Fabian', 'MAD VILLANY', 'media/entspannen_mit_saskia_klavier.mp3', 660),
+      new AudioTrack('Monochord', 'Fabian', 'MAD VILLANY', 'media/entspannen_mit_saskia_monochord.mp3', 660)]
     this.player.loadPlaylist(this.playlist);
   }
 
