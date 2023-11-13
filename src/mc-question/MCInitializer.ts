@@ -1,6 +1,6 @@
-import {CSS_CLASS_MC_ONE} from "./Globals";
+import {CSS_CLASS_MC_ONE} from "./MCGlobals";
 import {QuestionModel} from "./model/QuestionModel";
-import {Selector} from "./Selector";
+import {MCSelector} from "./MCSelector";
 import {MCType} from "./MCType";
 import {MCView} from "./view/MCView";
 
@@ -10,7 +10,7 @@ export class MCInitializer {
 
         // console.log("Initialize Questions ...");
 
-        let questions = Selector.getAllMCs();
+        let questions= MCSelector.getAllMCs();
 
         // console.log("Found " + questions.length + " mc-questions");
 
@@ -32,7 +32,7 @@ export class MCInitializer {
 
         // const selectorOptions = "#" + questionId + " ." + CSS_CLASS_MC_OPTION;
         // let mc_options = document.querySelectorAll(selectorOptions);
-        let mc_options = Selector.getAllOptions(questionId);
+        let mc_options = MCSelector.getAllOptions(questionId);
         // console.log("Found " + mc_options.length + " options.");
 
         let optionIDs: string[] = [];
@@ -42,7 +42,7 @@ export class MCInitializer {
 
         // const selectorOptionsCorrect = "#" + questionId + " ." + CSS_CLASS_MC_OPTION + "." + CSS_CLASS_MC_OPTION_CORRECT;
         // let mc_options_correct = document.querySelectorAll(selectorOptionsCorrect);
-        let mc_options_correct = Selector.getCorrectOptions(questionId);
+        let mc_options_correct = MCSelector.getCorrectOptions(questionId);
         // console.log("Found " + mc_options_correct.length + " correct options.");
 
         let correctOptionIDs: string[] = [];
@@ -66,7 +66,7 @@ export class MCInitializer {
 
         questionModel.getOptionIDs().forEach(function (optionId) {
 
-            let mcOption = Selector.getOption(optionId);
+            let mcOption = MCSelector.getOption(optionId);
 
             mcOption.addEventListener("click", function () {
                 // console.log(optionId + ": click!");
@@ -76,19 +76,19 @@ export class MCInitializer {
 
         });
 
-        let buttonCheck: HTMLElement = Selector.getButtonCheck(questionModel.getId());
+        let buttonCheck: HTMLElement = MCSelector.getButtonCheck(questionModel.getId());
         buttonCheck.addEventListener("click", function () {
             // QuizController.buttonCheckClicked(questionModel);
             questionModel.getState().buttonCheckClicked();
         });
 
-        let buttonShowSolution: HTMLElement = Selector.getButtonShowSolution(questionModel.getId());
+        let buttonShowSolution: HTMLElement = MCSelector.getButtonShowSolution(questionModel.getId());
         buttonShowSolution.addEventListener("click", function () {
             // QuizController.buttonShowSolutionClicked(questionModel);
             questionModel.getState().buttonShowSolutionClicked();
         });
 
-        let buttonRetry: HTMLElement = Selector.getButtonRetry(questionModel.getId());
+        let buttonRetry: HTMLElement = MCSelector.getButtonRetry(questionModel.getId());
         buttonRetry.addEventListener("click", function () {
             // QuizController.buttonRetryClicked(questionModel);
             questionModel.getState().buttonRetryClicked();

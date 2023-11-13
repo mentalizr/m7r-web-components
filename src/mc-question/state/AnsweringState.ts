@@ -5,7 +5,7 @@ import {QuestionResult} from "../QuestionResult";
 import {CorrectState} from "./CorrectState";
 import {IncorrectState} from "./IncorrectState";
 import Global = WebAssembly.Global;
-import {CSS_CLASS_STATE_ANSWERING} from "../Globals";
+import {CSS_CLASS_STATE_ANSWERING} from "../MCGlobals";
 
 export class AnsweringState extends AbstractState {
 

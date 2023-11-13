@@ -1,4 +1,5 @@
 import {MCInitializer} from "./mc-question/MCInitializer";
+import {MultiAudioInitializer} from "./multiAudio/MultiAudioInitializer";
 
 export function initializeWebComponents(): void {
 
@@ -9,6 +10,7 @@ export function initializeWebComponents(): void {
         window.addEventListener("DOMContentLoaded", function () {
             // QuizController.registerUserEvents();
             MCInitializer.initializeQuestions();
+            MultiAudioInitializer.initialize();
         })
     } else {
 
@@ -16,6 +18,7 @@ export function initializeWebComponents(): void {
 
         // QuizController.registerUserEvents();
         MCInitializer.initializeQuestions();
+        MultiAudioInitializer.initialize();
     }
 
 }
