@@ -166,7 +166,7 @@
     width: 50%;
 }
 
-#m7r-ma-play-pause-button {
+.m7r-ma-play-pause-button {
     color: #2a4244;
     font-size: 50px;
     margin: 10px;
@@ -174,11 +174,11 @@
     padding: 0;
 }
 
-#m7r-ma-play-pause-button:hover {
+.m7r-ma-play-pause-button:hover {
     cursor: pointer;
 }
 
-#loop-button.active {
+.m7r-ma-loop-button.active {
     background-color: #2a4244;
     color: white;
     border-radius: 25px;

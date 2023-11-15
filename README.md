@@ -22,7 +22,12 @@ or
 
     ./node_modules/.bin/webpack-dev-server
     
-Call `http://127.0.0.1:8080/html/demo-mc-question.html` in your browser.
+Call 
+
+* [http://127.0.0.1:8080/html/demo-mc-question.html](http://127.0.0.1:8080/html/demo-mc-question.html)
+* [http://127.0.0.1:8080/html/demo-mulitAudio.html](http://127.0.0.1:8080/html/demo-multiAudio.html)
+
+in your browser.
 
 ## License
 

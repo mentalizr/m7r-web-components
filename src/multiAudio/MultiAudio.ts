@@ -1,7 +1,9 @@
 import {AudioPlayer} from "./AudioPlayer";
 import {AudioTrack} from "./AudioTrack";
+import {MultiAudioView} from "./MultiAudioView";
 
 export class MultiAudio {
+  public htmlId: string;
   public player: AudioPlayer;
   public playlist: AudioTrack[];
   public currentTrack: AudioTrack | null;
@@ -10,7 +12,8 @@ export class MultiAudio {
   public remainingTimeInMin: string = "0:00";
   public init: boolean;
 
-  constructor() {
+  constructor(htmlId: string) {
+    this.htmlId = htmlId;
     this.player = new AudioPlayer();
     this.playlist = [];
     this.currentTrack = null;
@@ -29,9 +32,14 @@ export class MultiAudio {
   //loads the Playlist the Player will play through.
   loadPlaylist() {
     this.playlist = [
-      new AudioTrack('Klavier', 'Fabian', 'MAD VILLANY', 'media/entspannen_mit_saskia_klavier.mp3', 660),
-      new AudioTrack('Monochord', 'Fabian', 'MAD VILLANY', 'media/entspannen_mit_saskia_monochord.mp3', 660)]
+      new AudioTrack('birds', 'Fabian', 'MAD VILLANY', '.././media/whisper_birds.mp3', 660),
+      new AudioTrack('ocean', 'Fabian', 'MAD VILLANY', '.././media/whisper_ocean.mp3', 660),
+      new AudioTrack('rain', 'Fabian', 'MAD VILLANY', '.././media/whisper_rain.mp3', 660)]
     this.player.loadPlaylist(this.playlist);
+  }
+
+  public getHtmlId(): string {
+    return this.htmlId;
   }
 
   //Single function that can be called to switch the state of the currently playing Audioplayer
@@ -41,6 +49,7 @@ export class MultiAudio {
     } else {
       this.play();
     }
+    MultiAudioView.adjustPlayPauseButton(this);
   }
 
   //start playing the currently selected Track
@@ -55,6 +64,10 @@ export class MultiAudio {
   pause() {
     this.player.pause();
     this.player.isPlaying = false;
+  }
+
+  public isPlaying(): boolean {
+    return this.player.isPlaying;
   }
 
   //start the Track from the beginning
@@ -96,6 +109,11 @@ export class MultiAudio {
       this.player.mute();
       this.player.isMuted=true;
     }
+    MultiAudioView.toggleMuteButton(this);
+  }
+
+  public isMuted(): boolean {
+    return this.player.isMuted;
   }
 
   //lets the currently selected Track to be looped after play though
@@ -107,6 +125,11 @@ export class MultiAudio {
       this.player.loopOn();
       this.player.isLoop = true;
     }
+    MultiAudioView.toggleLoopButton(this);
+  }
+
+  public isLoop(): boolean {
+    return this.player.isLoop;
   }
 
   //updates all values inside this class that are shown on the overlay.
