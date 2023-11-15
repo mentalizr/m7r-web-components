@@ -1,6 +1,6 @@
 *~
-.gradle
-.idea
+.gradle/
+.idea/
 dist/
 gradle/
 js-out/
