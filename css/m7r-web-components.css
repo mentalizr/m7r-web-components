@@ -221,7 +221,7 @@
     color: #e6effc;
 }
 
-#volume-slider {
+.m7r-ma-volume-slider {
     height: 10px;
     background: #e6effc;
     outline: none;
@@ -232,11 +232,11 @@
     cursor: pointer;
 }
 
-#volume-slider:hover {
+.m7r-ma-volume-slider:hover {
     opacity: 1;
 }
 
-#volume-slider::-webkit-slider-thumb {
+.m7r-ma-volume-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     border-radius: 10px;
@@ -246,7 +246,7 @@
     cursor: pointer;
 }
 
-#volume-slider::-moz-range-thumb {
+.m7r-ma-volume-slider::-moz-range-thumb {
     width: 10px;
     height: 10px;
     background: #2a4244;

@@ -5,6 +5,8 @@ export const CSS_CLASS__REWIND_BUTTON = "m7r-ma-rewind-button";
 export const CSS_CLASS__LOOP_BUTTON = "m7r-ma-loop-button";
 export const CSS_CLASS__VOLUME_SLIDER = "m7r-ma-volume-slider";
 export const CSS_CLASS__MUTE_BUTTON = "m7r-ma-mute-button";
+export const CSS_CLASS__TRACK_BUTTON = "m7r-ma-track-button";
+export const TRACK_BUTTON_SOURCE_ATTRIBUTE = "data-source";
 
 export const ICON_PLAY = "bi-play-circle";
 export const ICON_PAUSE = "bi-pause-circle";

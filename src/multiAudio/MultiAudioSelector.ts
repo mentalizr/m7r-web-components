@@ -2,7 +2,7 @@ import {
     CSS_CLASS__LOOP_BUTTON,
     CSS_CLASS__MULTI_AUDIO, CSS_CLASS__MUTE_BUTTON,
     CSS_CLASS__PLAY_PAUSE_BUTTON,
-    CSS_CLASS__REWIND_BUTTON, CSS_CLASS__VOLUME_SLIDER
+    CSS_CLASS__REWIND_BUTTON, CSS_CLASS__TRACK_BUTTON, CSS_CLASS__VOLUME_SLIDER
 } from "./MultiAudioGlobals";
 import {MultiAudio} from "./MultiAudio";
 
@@ -11,6 +11,13 @@ export class MultiAudioSelector {
     public static getAllMultiAudio() {
         const selector = "." + CSS_CLASS__MULTI_AUDIO;
         return document.querySelectorAll<HTMLElement>(selector);
+    }
+
+    public static getAllTrackButtons(multiAudioId: string) {
+        const selector = "#" + multiAudioId + " ." + CSS_CLASS__TRACK_BUTTON;
+        const trackButtons = document.querySelectorAll<HTMLElement>(selector);
+        if (trackButtons.length == 0) console.error("No track-button found.");
+        return trackButtons;
     }
 
     public static getPlayPauseButton(multiAudio: MultiAudio): HTMLElement {

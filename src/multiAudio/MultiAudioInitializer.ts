@@ -1,5 +1,6 @@
 import {MultiAudioSelector} from "./MultiAudioSelector";
 import {MultiAudio} from "./MultiAudio";
+import {CSS_CLASS__TRACK_BUTTON, TRACK_BUTTON_SOURCE_ATTRIBUTE} from "./MultiAudioGlobals";
 
 export class MultiAudioInitializer {
 
@@ -8,9 +9,20 @@ export class MultiAudioInitializer {
 
         const multiAudioHtmlElements = MultiAudioSelector.getAllMultiAudio();
         multiAudioHtmlElements.forEach(function (multiAudioHtmlElement) {
-            const multiAudio = new MultiAudio(multiAudioHtmlElement.id);
+            const sources = MultiAudioInitializer.querySources(multiAudioHtmlElement);
+            const multiAudio = new MultiAudio(multiAudioHtmlElement.id, sources);
             MultiAudioInitializer.registerUserEvents(multiAudio);
         });
+    }
+
+    private static querySources(multiAudioHtmlElement: HTMLElement) : string[] {
+        const multiAudioHtmlId = multiAudioHtmlElement.id;
+        const trackButtons = MultiAudioSelector.getAllTrackButtons(multiAudioHtmlId);
+        let sources = new Array<string>();
+        trackButtons.forEach(function (trackButton) {
+            sources.push(trackButton.getAttribute(TRACK_BUTTON_SOURCE_ATTRIBUTE));
+        });
+        return sources;
     }
 
     private static registerUserEvents(multiAudio: MultiAudio) {
@@ -34,6 +46,13 @@ export class MultiAudioInitializer {
         const muteButton: HTMLElement = MultiAudioSelector.getMuteButton(multiAudio);
         muteButton.addEventListener("click", function () {
             multiAudio.muteAndUnmute();
+        });
+
+        const volumeSlider: HTMLElement = MultiAudioSelector.getVolumeSlider(multiAudio);
+        volumeSlider.addEventListener("input", () => {
+            const htmlInputElement = <HTMLInputElement>volumeSlider;
+            console.log("Value: " + htmlInputElement.value);
+            multiAudio.setVolume(htmlInputElement.value);
         });
 
     }
