@@ -1,12 +1,16 @@
 import {MultiAudioSelector} from "./MultiAudioSelector";
 import {MultiAudio} from "./MultiAudio";
-import {CSS_CLASS__TRACK_BUTTON, TRACK_BUTTON_SOURCE_ATTRIBUTE} from "./MultiAudioGlobals";
+import {TRACK_BUTTON_SOURCE_ATTRIBUTE} from "./MultiAudioGlobals";
+import {MultiAudioView} from "./MultiAudioView";
 
 export class MultiAudioInitializer {
 
     public static initialize() : void {
         console.log("MultiAudioInitializer called.");
+        MultiAudioInitializer.initializeEachMultiAudioElement();
+    }
 
+    private static initializeEachMultiAudioElement() {
         const multiAudioHtmlElements = MultiAudioSelector.getAllMultiAudio();
         multiAudioHtmlElements.forEach(function (multiAudioHtmlElement) {
             const sources = MultiAudioInitializer.querySources(multiAudioHtmlElement);
@@ -30,12 +34,12 @@ export class MultiAudioInitializer {
 
         const playPauseButton : HTMLElement = MultiAudioSelector.getPlayPauseButton(multiAudio);
         playPauseButton.addEventListener("click", function () {
-            multiAudio.playAndPause();
+            multiAudio.togglePlayPause();
         });
 
         const rewindButton: HTMLElement = MultiAudioSelector.getRewindButton(multiAudio);
         rewindButton.addEventListener("click", function () {
-            multiAudio.rewind();
+            multiAudio.skipBack();
         });
 
         const loopButton: HTMLElement = MultiAudioSelector.getLoopButton(multiAudio);
@@ -53,6 +57,16 @@ export class MultiAudioInitializer {
             const htmlInputElement = <HTMLInputElement>volumeSlider;
             console.log("Value: " + htmlInputElement.value);
             multiAudio.setVolume(htmlInputElement.value);
+        });
+
+        const multiAudioHtmlId = multiAudio.htmlId;
+        const trackButtons = MultiAudioSelector.getAllTrackButtons(multiAudioHtmlId);
+        trackButtons.forEach(function (trackButton) {
+            trackButton.addEventListener("click", () => {
+                const source = trackButton.getAttribute(TRACK_BUTTON_SOURCE_ATTRIBUTE);
+                multiAudio.switchTrack(source);
+                MultiAudioView.toggleTrackButton(multiAudio, trackButtons, source);
+            });
         });
 
     }

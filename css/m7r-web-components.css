@@ -205,18 +205,18 @@
     gap: 10px;
 }
 
-.audio-player-playlist button {
+.m7r-ma-playlist button {
     background-color: #e6effc;
     color: #2a4244;
     cursor: pointer;
 }
 
-.audio-player-playlist button:hover {
+.m7r-ma-playlist button:hover {
     background-color: #2a4244;
     color: #e6effc;
 }
 
-.audio-player-playlist button.active {
+.m7r-ma-playlist button.active {
     background-color: #2a4244;
     color: #e6effc;
 }

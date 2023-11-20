@@ -6,6 +6,10 @@ export const CSS_CLASS__LOOP_BUTTON = "m7r-ma-loop-button";
 export const CSS_CLASS__VOLUME_SLIDER = "m7r-ma-volume-slider";
 export const CSS_CLASS__MUTE_BUTTON = "m7r-ma-mute-button";
 export const CSS_CLASS__TRACK_BUTTON = "m7r-ma-track-button";
+export const CSS_CLASS__TRACK_BUTTON__ACTIVE = "active";
+export const CSS_CLASS__CURRENT_TIME_LABEL = "m7r-ma-current-time-label";
+export const CSS_CLASS__REMAINING_TIME_LABEL = "m7r-ma-remaining-time-label";
+
 export const TRACK_BUTTON_SOURCE_ATTRIBUTE = "data-source";
 
 export const ICON_PLAY = "bi-play-circle";

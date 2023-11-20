@@ -1,6 +1,13 @@
 import {MultiAudio} from "./MultiAudio";
 import {MultiAudioSelector} from "./MultiAudioSelector";
-import {ICON_PAUSE, ICON_PLAY, ICON_VOLUME_DOWN, ICON_VOLUME_MUTE} from "./MultiAudioGlobals";
+import {
+    CSS_CLASS__TRACK_BUTTON__ACTIVE,
+    ICON_PAUSE,
+    ICON_PLAY,
+    ICON_VOLUME_DOWN,
+    ICON_VOLUME_MUTE,
+    TRACK_BUTTON_SOURCE_ATTRIBUTE
+} from "./MultiAudioGlobals";
 
 export class MultiAudioView {
 
@@ -48,6 +55,17 @@ export class MultiAudioView {
             }
             volumeSlider.disabled = false;
         }
+    }
+
+    public static toggleTrackButton(multiAudio: MultiAudio, allTrackButtons: NodeListOf<HTMLElement>, source: string) {
+        console.log("Track-Button: " + source)
+        allTrackButtons.forEach(function (trackButton) {
+            if (trackButton.getAttribute(TRACK_BUTTON_SOURCE_ATTRIBUTE) === source) {
+                trackButton.classList.add(CSS_CLASS__TRACK_BUTTON__ACTIVE);
+            } else {
+                trackButton.classList.remove(CSS_CLASS__TRACK_BUTTON__ACTIVE);
+            }
+        });
     }
 
 }
