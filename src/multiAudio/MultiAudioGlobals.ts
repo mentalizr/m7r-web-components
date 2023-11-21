@@ -9,6 +9,7 @@ export const CSS_CLASS__TRACK_BUTTON = "m7r-ma-track-button";
 export const CSS_CLASS__TRACK_BUTTON__ACTIVE = "active";
 export const CSS_CLASS__CURRENT_TIME_LABEL = "m7r-ma-current-time-label";
 export const CSS_CLASS__REMAINING_TIME_LABEL = "m7r-ma-remaining-time-label";
+export const CSS_CLASS__PROGRESS_BAR = "m7r-ma-progressBar";
 
 export const TRACK_BUTTON_SOURCE_ATTRIBUTE = "data-source";
 

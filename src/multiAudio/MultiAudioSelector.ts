@@ -2,7 +2,7 @@ import {
     CSS_CLASS__CURRENT_TIME_LABEL,
     CSS_CLASS__LOOP_BUTTON,
     CSS_CLASS__MULTI_AUDIO, CSS_CLASS__MUTE_BUTTON,
-    CSS_CLASS__PLAY_PAUSE_BUTTON, CSS_CLASS__REMAINING_TIME_LABEL,
+    CSS_CLASS__PLAY_PAUSE_BUTTON, CSS_CLASS__PROGRESS_BAR, CSS_CLASS__REMAINING_TIME_LABEL,
     CSS_CLASS__REWIND_BUTTON, CSS_CLASS__TRACK_BUTTON, CSS_CLASS__VOLUME_SLIDER
 } from "./MultiAudioGlobals";
 import {MultiAudio} from "./MultiAudio";
@@ -59,6 +59,11 @@ export class MultiAudioSelector {
         let volumeSliderHtmlElement = document.querySelector<HTMLElement>(selector);
         if (volumeSliderHtmlElement == null) console.error("Volume-Slider not found.");
         return volumeSliderHtmlElement;
+    }
+
+    public static getProgressBar(multiAudio: MultiAudio): HTMLInputElement {
+        const selector = "#" + multiAudio.htmlId + " ." + CSS_CLASS__PROGRESS_BAR;
+        return document.querySelector<HTMLInputElement>(selector);
     }
 
     public static getCurrentTimeLabel(multiAudio: MultiAudio): HTMLElement {

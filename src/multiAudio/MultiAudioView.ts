@@ -57,6 +57,34 @@ export class MultiAudioView {
         }
     }
 
+    public static updateProgressBarMaxValue(multiAudio: MultiAudio, maxValue: string) {
+        const slider = MultiAudioSelector.getProgressBar(multiAudio);
+        slider.setAttribute("max", maxValue);
+    }
+
+    public static updateProgressBarAndLabels(multiAudio: MultiAudio) {
+        MultiAudioView.updateProgressbarValue(multiAudio);
+        MultiAudioView.updateCurrentTimeLabel(multiAudio);
+        MultiAudioView.updateRemainingTime(multiAudio);
+
+        // console.log("{cTime in Min: " + this.currentTimeInMin + "} " + "{rTime in Min:" + this.remainingTimeInMin + "} duration: " + this.audioWrapper.getDuration());
+    }
+
+    private static updateProgressbarValue(multiAudio: MultiAudio): void {
+        const slider = MultiAudioSelector.getProgressBar(multiAudio);
+        slider.value = multiAudio.getCurrentTimePerThousand();
+    }
+
+    private static updateCurrentTimeLabel(multiAudio: MultiAudio) {
+        const label = MultiAudioSelector.getCurrentTimeLabel(multiAudio);
+        label.innerHTML = String(multiAudio.getCurrentTimeInMin());
+    }
+
+    private static updateRemainingTime(multiAudio: MultiAudio) {
+        const label = MultiAudioSelector.getRemainingTimeLabel(multiAudio);
+        label.innerHTML = String(multiAudio.getRemainingTimeInMin());
+    }
+
     public static toggleTrackButton(multiAudio: MultiAudio, allTrackButtons: NodeListOf<HTMLElement>, source: string) {
         console.log("Track-Button: " + source)
         allTrackButtons.forEach(function (trackButton) {

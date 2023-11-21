@@ -253,7 +253,7 @@
     cursor: pointer;
 }
 
-#progressBar {
+.m7r-ma-progressBar {
     -webkit-appearance: none;
     height: 10px;
     background: #e6effc;
@@ -264,11 +264,11 @@
     cursor: pointer;
 }
 
-#progressBar:hover {
+.m7r-ma-progressBar:hover {
     opacity: 1;
 }
 
-#progressBar::-webkit-slider-thumb {
+.m7r-ma-progressBar::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     border-radius: 15px;
@@ -278,7 +278,7 @@
     cursor: pointer;
 }
 
-#progressBar::-moz-range-thumb {
+.m7r-ma-progressBar::-moz-range-thumb {
     width: 15px;
     height: 15px;
     background: #2a4244;

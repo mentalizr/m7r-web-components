@@ -16,6 +16,7 @@ export class MultiAudioInitializer {
             const sources = MultiAudioInitializer.querySources(multiAudioHtmlElement);
             const multiAudio = new MultiAudio(multiAudioHtmlElement.id, sources);
             MultiAudioInitializer.registerUserEvents(multiAudio);
+            MultiAudioInitializer.registerLifeCycleEvents(multiAudio);
         });
     }
 
@@ -29,8 +30,15 @@ export class MultiAudioInitializer {
         return sources;
     }
 
+    private static registerLifeCycleEvents(multiAudio: MultiAudio) {
+        multiAudio.audioWrapper.audioElement.addEventListener("durationchange", () => {
+            // console.log("durationchange fired: " + multiAudio.audioWrapper.audioElement.duration);
+            multiAudio.duration = multiAudio.audioWrapper.audioElement.duration;
+            MultiAudioView.updateProgressBarAndLabels(multiAudio);
+        });
+    }
+
     private static registerUserEvents(multiAudio: MultiAudio) {
-        console.log("Register MultiAudio.");
 
         const playPauseButton : HTMLElement = MultiAudioSelector.getPlayPauseButton(multiAudio);
         playPauseButton.addEventListener("click", function () {
