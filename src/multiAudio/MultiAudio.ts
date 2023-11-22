@@ -24,54 +24,28 @@ export class MultiAudio {
         this.interval = undefined;
     }
 
-    skipBack() {
-        this.audioElement.currentTime = 0;
-    }
-
-    // skipTo(skipTo: number) {
-    //     this.audioElement.currentTime = skipTo;
-    // }
-
     switchTrack(source: string) {
         const currentTime = this.audioElement.currentTime;
         this.audioElement.src = source;
         this.audioElement.currentTime = currentTime;
     }
 
-    getCurrentTime(): number {
-        return this.audioElement.currentTime;
-    }
-
-    // seekTo() {
-    //     const element = document.getElementById("progressBar") as HTMLInputElement;
-    //     const seekTo = parseFloat(element.value);
-    //     this.audioWrapper.skipTo(seekTo);
-    // }
-
-    setVolume(value: string) {
+    setVolumeByPercentageString(value: string) {
         const volume = parseFloat(value)
         this.audioElement.volume = volume / 100;
     }
 
     public toggleMute() {
-        this.audioElement.muted = !this.isMuted();
-    }
-
-    public isMuted(): boolean {
-        return this.audioElement.muted;
+        this.audioElement.muted = !this.audioElement.muted;
     }
 
     public toggleLoop() {
-        this.audioElement.loop = !this.isLoop();
-    }
-
-    public isLoop(): boolean {
-        return this.audioElement.loop;
+        this.audioElement.loop = !this.audioElement.loop;
     }
 
     getCurrentTimeInMin(): string {
-        const minutes = Math.floor(this.getCurrentTime() / 60);
-        const seconds = Math.round(this.getCurrentTime() % 60);
+        const minutes = Math.floor(this.audioElement.currentTime / 60);
+        const seconds = Math.round(this.audioElement.currentTime % 60);
         if (seconds < 10) {
             return `${minutes}:0${seconds}`;
         }
@@ -79,14 +53,13 @@ export class MultiAudio {
     }
 
     getCurrentTimePerThousand(): string {
-        return (1000 / this.duration * this.getCurrentTime()).toString();
+        return (1000 / this.duration * this.audioElement.currentTime).toString();
     }
-
 
     getRemainingTimeInMin(): string {
         if (this.duration == 0) return "0:00";
 
-        const inSec = Math.floor(this.duration - this.getCurrentTime());
+        const inSec = Math.floor(this.duration - this.audioElement.currentTime);
 
         const minutes = Math.floor(inSec / 60);
         const seconds = Math.round(inSec % 60);
@@ -94,6 +67,12 @@ export class MultiAudio {
             return `${minutes}:0${seconds}`;
         }
         return `${minutes}:${seconds}`;
+    }
+
+    public gotoTimestampPerThousand(timestampPerThousand: number) {
+        if (this.duration != 0) {
+            this.audioElement.currentTime = this.duration / 1000 * timestampPerThousand;
+        }
     }
 
 }

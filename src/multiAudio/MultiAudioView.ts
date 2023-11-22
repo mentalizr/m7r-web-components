@@ -25,7 +25,7 @@ export class MultiAudioView {
 
     public static toggleLoopButton(multiAudio: MultiAudio) {
         let loopButton: HTMLElement = MultiAudioSelector.getLoopButton(multiAudio);
-        if (multiAudio.isLoop()) {
+        if (multiAudio.audioElement.loop) {
             if (!loopButton.classList.contains("active")) {
                 loopButton.classList.add("active");
             }
@@ -39,7 +39,7 @@ export class MultiAudioView {
     public static toggleMuteButton(muliAudio: MultiAudio) {
         let muteButton: HTMLElement = MultiAudioSelector.getMuteButton(muliAudio);
         let volumeSlider: HTMLInputElement = <HTMLInputElement>MultiAudioSelector.getVolumeSlider(muliAudio);
-        if (muliAudio.isMuted()) {
+        if (muliAudio.audioElement.muted) {
             if (muteButton.classList.contains(ICON_VOLUME_DOWN)) {
                 muteButton.classList.remove(ICON_VOLUME_DOWN);
                 muteButton.classList.add(ICON_VOLUME_MUTE);
@@ -54,10 +54,10 @@ export class MultiAudioView {
         }
     }
 
-    // public static getProgressBarValue(multiAudio: MultiAudio): number {
-    //     const slider = MultiAudioSelector.getProgressBar(multiAudio);
-    //
-    // }
+    public static getProgressBarValue(multiAudio: MultiAudio): number {
+        const slider = MultiAudioSelector.getProgressBar(multiAudio);
+        return parseInt(slider.value);
+    }
 
     public static updateProgressBarAndLabels(multiAudio: MultiAudio) {
         MultiAudioView.updateProgressbarValue(multiAudio);

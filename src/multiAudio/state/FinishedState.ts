@@ -2,6 +2,7 @@ import {MultiAudioAbstractState} from "./MultiAudioAbstractState";
 import {MultiAudio} from "../MultiAudio";
 import {MultiAudioView} from "../MultiAudioView";
 import {PlayingState} from "./PlayingState";
+import {PausedState} from "./PausedState";
 
 export class FinishedState extends MultiAudioAbstractState {
 
@@ -18,7 +19,8 @@ export class FinishedState extends MultiAudioAbstractState {
     }
 
     progressSliderInputAdjusted() {
-        // TODO
+        super.progressSliderInputAdjusted();
+        this.multiAudio.state = new PausedState(this.multiAudio);
     }
 
 }

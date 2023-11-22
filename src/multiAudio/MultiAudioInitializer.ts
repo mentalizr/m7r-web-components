@@ -34,13 +34,13 @@ export class MultiAudioInitializer {
     private static registerLifeCycleEvents(multiAudio: MultiAudio) {
 
         multiAudio.audioElement.addEventListener("durationchange", () => {
-            // console.log("durationchange fired: " + multiAudio.audioWrapper.audioElement.duration);
+            // console.log("event [durationchange] fired: " + multiAudio.audioElement.duration);
             multiAudio.duration = multiAudio.audioElement.duration;
             MultiAudioView.updateProgressBarAndLabels(multiAudio);
         });
 
         multiAudio.audioElement.addEventListener('ended', () => {
-            console.log("Stopped!");
+            // console.log("event [ended] fired.");
             MultiAudioView.displayPlayButton(multiAudio);
             multiAudio.state = new FinishedState(multiAudio);
         });
@@ -76,9 +76,7 @@ export class MultiAudioInitializer {
 
         const progressSlider: HTMLElement = MultiAudioSelector.getProgressBar(multiAudio);
         progressSlider.addEventListener("input", () => {
-            const htmlInputElement = <HTMLInputElement> progressSlider;
-            console.log("ProgressSlider change: " + htmlInputElement.value);
-            // TODO
+            multiAudio.state.progressSliderInputAdjusted();
         });
 
         const multiAudioHtmlId = multiAudio.htmlId;

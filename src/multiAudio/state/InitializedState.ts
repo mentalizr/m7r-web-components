@@ -16,8 +16,4 @@ export class InitializedState extends MultiAudioAbstractState {
         this.multiAudio.state = new PlayingState(this.multiAudio);
     }
 
-    progressSliderInputAdjusted() {
-
-    }
-
 }

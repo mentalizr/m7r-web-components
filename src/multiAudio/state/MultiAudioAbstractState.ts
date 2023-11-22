@@ -12,10 +12,14 @@ export abstract class MultiAudioAbstractState {
 
     public abstract playPauseButtonPressed();
 
-    public abstract progressSliderInputAdjusted();
+    public progressSliderInputAdjusted() {
+        const value = MultiAudioView.getProgressBarValue(this.multiAudio);
+        this.multiAudio.gotoTimestampPerThousand(value);
+        MultiAudioView.updateProgressBarAndLabels(this.multiAudio);
+    }
 
     public skipBackButtonPressed() {
-        this.multiAudio.skipBack();
+        this.multiAudio.audioElement.currentTime = 0;
         MultiAudioView.updateProgressBarAndLabels(this.multiAudio);
     }
 
@@ -32,7 +36,7 @@ export abstract class MultiAudioAbstractState {
     public volumeSet() {
         const volumeSlider: HTMLElement = MultiAudioSelector.getVolumeSlider(this.multiAudio);
         const htmlInputElement = <HTMLInputElement> volumeSlider;
-        this.multiAudio.setVolume(htmlInputElement.value);
+        this.multiAudio.setVolumeByPercentageString(htmlInputElement.value);
     }
 
     public trackSwitched(source: string) {

@@ -24,8 +24,4 @@ export class PlayingState extends MultiAudioAbstractState {
         this.multiAudio.audioElement.play();
     }
 
-    progressSliderInputAdjusted() {
-        // TODO
-    }
-
 }

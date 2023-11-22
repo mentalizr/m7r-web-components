@@ -1,9 +1,14 @@
 import {
     CSS_CLASS__CURRENT_TIME_LABEL,
     CSS_CLASS__LOOP_BUTTON,
-    CSS_CLASS__MULTI_AUDIO, CSS_CLASS__MUTE_BUTTON,
-    CSS_CLASS__PLAY_PAUSE_BUTTON, CSS_CLASS__PROGRESS_BAR, CSS_CLASS__REMAINING_TIME_LABEL,
-    CSS_CLASS__SKIP_BACK_BUTTON, CSS_CLASS__TRACK_BUTTON, CSS_CLASS__VOLUME_SLIDER
+    CSS_CLASS__MULTI_AUDIO,
+    CSS_CLASS__MUTE_BUTTON,
+    CSS_CLASS__PLAY_PAUSE_BUTTON,
+    CSS_CLASS__PROGRESS_BAR,
+    CSS_CLASS__REMAINING_TIME_LABEL,
+    CSS_CLASS__SKIP_BACK_BUTTON,
+    CSS_CLASS__TRACK_BUTTON,
+    CSS_CLASS__VOLUME_SLIDER
 } from "./MultiAudioGlobals";
 import {MultiAudio} from "./MultiAudio";
 
@@ -20,9 +25,7 @@ export class MultiAudioSelector {
 
     public static getAllTrackButtonsById(multiAudioId: string) {
         const selector = "#" + multiAudioId + " ." + CSS_CLASS__TRACK_BUTTON;
-        const trackButtons = document.querySelectorAll<HTMLElement>(selector);
-        if (trackButtons.length == 0) console.error("No track-button found.");
-        return trackButtons;
+        return document.querySelectorAll<HTMLElement>(selector);
     }
 
     public static getTrackButtonForSource(multiAudio: MultiAudio, source: string): HTMLElement {
@@ -32,37 +35,27 @@ export class MultiAudioSelector {
 
     public static getPlayPauseButton(multiAudio: MultiAudio): HTMLElement {
         const selector = "#" + multiAudio.htmlId + " ." + CSS_CLASS__PLAY_PAUSE_BUTTON;
-        let playPauseHtmlElement = document.querySelector<HTMLElement>(selector);
-        if (playPauseHtmlElement == null) console.error("Play/Pause-Button not found.");
-        return playPauseHtmlElement;
+        return document.querySelector<HTMLElement>(selector);
     }
 
     public static getSkipBackButton(multiAudio: MultiAudio): HTMLElement {
         const selector = "#" + multiAudio.htmlId + " ." + CSS_CLASS__SKIP_BACK_BUTTON;
-        let rewindButtonHtmlElement = document.querySelector<HTMLElement>(selector);
-        if (rewindButtonHtmlElement == null) console.error("Rewind-Button not found.");
-        return rewindButtonHtmlElement;
+        return document.querySelector<HTMLElement>(selector);
     }
 
     public static getLoopButton(multiAudio: MultiAudio): HTMLElement {
         const selector = "#" + multiAudio.htmlId + " ." + CSS_CLASS__LOOP_BUTTON;
-        let loopButtonHtmlElement = document.querySelector<HTMLElement>(selector);
-        if (loopButtonHtmlElement == null) console.error("Loop-Button not found.");
-        return loopButtonHtmlElement;
+        return document.querySelector<HTMLElement>(selector);
     }
 
     public static getMuteButton(multiAudio: MultiAudio): HTMLElement {
         const selector = "#" + multiAudio.htmlId + " ." + CSS_CLASS__MUTE_BUTTON;
-        let muteButtonHtmlElement = document.querySelector<HTMLElement>(selector);
-        if (muteButtonHtmlElement == null) console.error("Mute-Button not found.");
-        return muteButtonHtmlElement;
+        return document.querySelector<HTMLElement>(selector);
     }
 
     public static getVolumeSlider(multiAudio: MultiAudio): HTMLElement {
         const selector = "#" + multiAudio.htmlId + " ." + CSS_CLASS__VOLUME_SLIDER;
-        let volumeSliderHtmlElement = document.querySelector<HTMLElement>(selector);
-        if (volumeSliderHtmlElement == null) console.error("Volume-Slider not found.");
-        return volumeSliderHtmlElement;
+        return document.querySelector<HTMLElement>(selector);
     }
 
     public static getProgressBar(multiAudio: MultiAudio): HTMLInputElement {

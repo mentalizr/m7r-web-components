@@ -16,8 +16,4 @@ export class PausedState extends MultiAudioAbstractState {
         this.multiAudio.state = new PlayingState(this.multiAudio);
     }
 
-    progressSliderInputAdjusted() {
-        // TODO
-    }
-
 }
