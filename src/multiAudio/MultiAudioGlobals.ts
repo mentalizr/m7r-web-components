@@ -1,7 +1,7 @@
 export const CSS_CLASS__MULTI_AUDIO = "m7r-ma";
 
 export const CSS_CLASS__PLAY_PAUSE_BUTTON = "m7r-ma-play-pause-button"
-export const CSS_CLASS__REWIND_BUTTON = "m7r-ma-rewind-button";
+export const CSS_CLASS__SKIP_BACK_BUTTON = "m7r-ma-skip-back-button";
 export const CSS_CLASS__LOOP_BUTTON = "m7r-ma-loop-button";
 export const CSS_CLASS__VOLUME_SLIDER = "m7r-ma-volume-slider";
 export const CSS_CLASS__MUTE_BUTTON = "m7r-ma-mute-button";

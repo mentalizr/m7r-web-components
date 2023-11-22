@@ -11,19 +11,16 @@ import {
 
 export class MultiAudioView {
 
-    public static adjustPlayPauseButton(multiAudio: MultiAudio) {
+    public static displayPlayButton(multiAudio: MultiAudio) {
         let playPauseButton: HTMLElement = MultiAudioSelector.getPlayPauseButton(multiAudio);
-        if (multiAudio.isPlaying()) {
-            if (!playPauseButton.classList.contains(ICON_PAUSE)) {
-                playPauseButton.classList.remove(ICON_PLAY);
-                playPauseButton.classList.add(ICON_PAUSE);
-            }
-        } else {
-            if (!playPauseButton.classList.contains(ICON_PLAY)) {
-                playPauseButton.classList.remove(ICON_PAUSE);
-                playPauseButton.classList.add(ICON_PLAY);
-            }
-        }
+        playPauseButton.classList.remove(ICON_PAUSE);
+        playPauseButton.classList.add(ICON_PLAY);
+    }
+
+    public static displayPauseButton(multiAudio: MultiAudio) {
+        let playPauseButton: HTMLElement = MultiAudioSelector.getPlayPauseButton(multiAudio);
+        playPauseButton.classList.remove(ICON_PLAY);
+        playPauseButton.classList.add(ICON_PAUSE);
     }
 
     public static toggleLoopButton(multiAudio: MultiAudio) {
@@ -57,10 +54,10 @@ export class MultiAudioView {
         }
     }
 
-    public static updateProgressBarMaxValue(multiAudio: MultiAudio, maxValue: string) {
-        const slider = MultiAudioSelector.getProgressBar(multiAudio);
-        slider.setAttribute("max", maxValue);
-    }
+    // public static getProgressBarValue(multiAudio: MultiAudio): number {
+    //     const slider = MultiAudioSelector.getProgressBar(multiAudio);
+    //
+    // }
 
     public static updateProgressBarAndLabels(multiAudio: MultiAudio) {
         MultiAudioView.updateProgressbarValue(multiAudio);
@@ -86,7 +83,6 @@ export class MultiAudioView {
     }
 
     public static toggleTrackButton(multiAudio: MultiAudio, allTrackButtons: NodeListOf<HTMLElement>, source: string) {
-        console.log("Track-Button: " + source)
         allTrackButtons.forEach(function (trackButton) {
             if (trackButton.getAttribute(TRACK_BUTTON_SOURCE_ATTRIBUTE) === source) {
                 trackButton.classList.add(CSS_CLASS__TRACK_BUTTON__ACTIVE);

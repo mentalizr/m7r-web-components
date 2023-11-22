@@ -1,57 +1,45 @@
-import {AudioWrapper} from "./AudioWrapper";
-import {MultiAudioView} from "./MultiAudioView";
+import {MultiAudioAbstractState} from "./state/MultiAudioAbstractState";
+import {InitializedState} from "./state/InitializedState";
 
 export class MultiAudio {
     public htmlId: string;
     public sources: string[];
-    public audioWrapper: AudioWrapper;
+    public audioElement: HTMLAudioElement;
     public duration: number = 0;
+    public state: MultiAudioAbstractState;
+    public interval: number;
 
     constructor(htmlId: string, sources: string[]) {
         this.htmlId = htmlId;
         this.sources = sources;
-        this.audioWrapper = new AudioWrapper();
-        this.audioWrapper.playTrack(sources[0]);
-
-        // this.sources.forEach(function (source) {
-        //     console.log("Source: [" + source + "].");
-        // });
-
-
-
-        setInterval(() => {
-            if (this.audioWrapper.isPlaying) {
-                MultiAudioView.updateProgressBarAndLabels(this);
-            }
-        }, 5, this.audioWrapper.isPlaying);
+        this.audioElement = new Audio();
+        this.switchTrack(sources[0]);
+        this.state = new InitializedState(this);
     }
 
-    togglePlayPause(): void {
-        if (this.audioWrapper.isPlaying) {
-            this.pause();
-        } else {
-            this.play();
+    public clearInterval() {
+        if (this.interval !== undefined) {
+            window.clearInterval(this.interval);
         }
-        MultiAudioView.adjustPlayPauseButton(this);
-    }
-
-    play() {
-        this.audioWrapper.play();
-        this.audioWrapper.isPlaying = true;
-    }
-
-    pause() {
-        this.audioWrapper.pause();
-        this.audioWrapper.isPlaying = false;
-    }
-
-    public isPlaying(): boolean {
-        return this.audioWrapper.isPlaying;
+        this.interval = undefined;
     }
 
     skipBack() {
-        this.audioWrapper.skipBack();
-        MultiAudioView.updateProgressBarAndLabels(this);
+        this.audioElement.currentTime = 0;
+    }
+
+    // skipTo(skipTo: number) {
+    //     this.audioElement.currentTime = skipTo;
+    // }
+
+    switchTrack(source: string) {
+        const currentTime = this.audioElement.currentTime;
+        this.audioElement.src = source;
+        this.audioElement.currentTime = currentTime;
+    }
+
+    getCurrentTime(): number {
+        return this.audioElement.currentTime;
     }
 
     // seekTo() {
@@ -60,54 +48,30 @@ export class MultiAudio {
     //     this.audioWrapper.skipTo(seekTo);
     // }
 
-    switchTrack(source: string) {
-        this.audioWrapper.pause();
-        this.audioWrapper.playTrack(source);
-        if (this.audioWrapper.isPlaying) {
-            this.play();
-        } else {
-            this.pause();
-        }
-    }
-
     setVolume(value: string) {
         const volume = parseFloat(value)
-        this.audioWrapper.setVolume(volume / 100);
+        this.audioElement.volume = volume / 100;
     }
 
-    muteAndUnmute() {
-        if (this.audioWrapper.isMuted) {
-            this.audioWrapper.unmute();
-            this.audioWrapper.isMuted = false;
-        } else {
-            this.audioWrapper.mute();
-            this.audioWrapper.isMuted = true;
-        }
-        MultiAudioView.toggleMuteButton(this);
+    public toggleMute() {
+        this.audioElement.muted = !this.isMuted();
     }
 
     public isMuted(): boolean {
-        return this.audioWrapper.isMuted;
+        return this.audioElement.muted;
     }
 
-    loopOnAndOff() {
-        if (this.audioWrapper.isLoop) {
-            this.audioWrapper.loopOff();
-            this.audioWrapper.isLoop = false;
-        } else {
-            this.audioWrapper.loopOn();
-            this.audioWrapper.isLoop = true;
-        }
-        MultiAudioView.toggleLoopButton(this);
+    public toggleLoop() {
+        this.audioElement.loop = !this.isLoop();
     }
 
     public isLoop(): boolean {
-        return this.audioWrapper.isLoop;
+        return this.audioElement.loop;
     }
 
     getCurrentTimeInMin(): string {
-        const minutes = Math.floor(this.audioWrapper.getCurrentTime() / 60);
-        const seconds = Math.round(this.audioWrapper.getCurrentTime() % 60);
+        const minutes = Math.floor(this.getCurrentTime() / 60);
+        const seconds = Math.round(this.getCurrentTime() % 60);
         if (seconds < 10) {
             return `${minutes}:0${seconds}`;
         }
@@ -115,14 +79,14 @@ export class MultiAudio {
     }
 
     getCurrentTimePerThousand(): string {
-        return (1000 / this.duration * this.audioWrapper.getCurrentTime()).toString();
+        return (1000 / this.duration * this.getCurrentTime()).toString();
     }
 
 
     getRemainingTimeInMin(): string {
         if (this.duration == 0) return "0:00";
 
-        const inSec = Math.floor(this.duration - this.audioWrapper.getCurrentTime());
+        const inSec = Math.floor(this.duration - this.getCurrentTime());
 
         const minutes = Math.floor(inSec / 60);
         const seconds = Math.round(inSec % 60);
@@ -131,6 +95,5 @@ export class MultiAudio {
         }
         return `${minutes}:${seconds}`;
     }
-
 
 }
