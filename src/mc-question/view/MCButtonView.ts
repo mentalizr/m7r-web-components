@@ -1,19 +1,19 @@
 import {QuestionModel} from "../model/QuestionModel";
-import {Selector} from "../Selector";
-import {CSS_CLASS_BS_D_NONE} from "../Globals";
+import {MCSelector} from "../MCSelector";
+import {CSS_CLASS_BS_D_NONE} from "../MCGlobals";
 
 export class MCButtonView {
 
     public static updateButtons(questionModel: QuestionModel): void {
 
-        let buttonCheck: HTMLElement = Selector.getButtonCheck(questionModel.getId());
+        let buttonCheck: HTMLElement = MCSelector.getButtonCheck(questionModel.getId());
         if (questionModel.isShowButtonCheck()) {
             MCButtonView.showButton(buttonCheck);
         } else {
             MCButtonView.hideButton(buttonCheck);
         }
 
-        let buttonShowSolution: HTMLElement = Selector.getButtonShowSolution(questionModel.getId());
+        let buttonShowSolution: HTMLElement = MCSelector.getButtonShowSolution(questionModel.getId());
         if (questionModel.isShowButtonShowSolution()) {
             // console.log("Button Show: SHOW");
             MCButtonView.showButton(buttonShowSolution);
@@ -22,7 +22,7 @@ export class MCButtonView {
             MCButtonView.hideButton(buttonShowSolution);
         }
 
-        let buttonRetry: HTMLElement = Selector.getButtonRetry(questionModel.getId());
+        let buttonRetry: HTMLElement = MCSelector.getButtonRetry(questionModel.getId());
         if (questionModel.isShowButtonRetry()) {
             MCButtonView.showButton(buttonRetry);
         } else {

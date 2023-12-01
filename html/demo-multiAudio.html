@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" href="../bootstrap-icons/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="../css/m7r-web-components.css"/>
+
+    <title>mentalizr - web-components - multiple choice demo</title>
+</head>
+<body>
+<div class="container-fluid">
+
+    <div class="row">
+        <div id="main-content" class="col-lg-8 col-md-10 col-sm-12 col-xs-12 mx-auto" style="">
+
+            <p class="h3 mt-4 mb-5">mentalizr - web-components - demo | multiAudio-player</p>
+
+            <p class="h5">MultiAudio-Player:</p>
+
+            <!-- div id="ma1" class="m7r-ma defined-space container-lg mt-1 mb-1 d-flex flex-column" -->
+            <div id="ma1" class="m7r-ma container-fluid col-lg-8 col-md-10 col-sm-12 col-xs-12 mt-1 mb-1 d-flex flex-column">
+                <div class="m7r-ma-toolbar p-1 d-flex flex-column align-items-center">
+                    <i class="m7r-ma-play-pause-button bi-play-circle"></i>
+                </div>
+                <div class="slider-container p-2 d-flex flex-column align-self-center w-100">
+                    <div class="slider-toolbar d-flex flex-row justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                            <i class="m7r-ma-skip-back-button bi bi-rewind"></i>
+                            <i class="m7r-ma-loop-button bi bi-repeat"></i>
+                        </div>
+                        <div class="d-flex flex-row align-items-center justify-content-end">
+                            <input class="m7r-ma-volume-slider p-1 w-50" type="range" min="0" max="100" value="100">
+                            <i class="m7r-ma-mute-button p-2 bi-volume-down"></i>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <input type="range" class="m7r-ma-progressBar p-1" min="0" value="0" max="1000">
+                        <div class="slider-timestamp p-2 d-flex flex-row justify-content-between">
+                            <label class="m7r-ma-current-time-label">0:00</label>
+                            <label class="m7r-ma-remaining-time-label">0:00</label>
+                        </div>
+                    </div>
+                </div>
+                <div role="group" class="m7r-ma-playlist btn-group-vertical p-3 align-items-center">
+                    <button class="m7r-ma-track-button btn btn-secondary w-25 active" data-source=".././media/whisper_birds.mp3">birds</button>
+                    <button class="m7r-ma-track-button btn btn-secondary w-25" data-source=".././media/whisper_ocean.mp3">ocean</button>
+                    <button class="m7r-ma-track-button btn btn-secondary w-25" data-source=".././media/whisper_rain.mp3">rain</button>
+                </div>
+            </div>
+            <p>Ein folgender Absatz ...</p>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../m7r-web-components.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 import {AbstractState} from "./AbstractState";
 import {QuestionModel} from "../model/QuestionModel";
-import {CSS_CLASS_STATE_CORRECT} from "../Globals";
+import {CSS_CLASS_STATE_CORRECT} from "../MCGlobals";
 import {QuestionResult} from "../QuestionResult";
 
 export class CorrectState extends AbstractState {

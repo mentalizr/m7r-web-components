@@ -1,12 +1,12 @@
 import {QuestionModel} from "../model/QuestionModel";
-import {Selector} from "../Selector";
-import {CSS_CLASS_STATE_PREFIX} from "../Globals";
+import {MCSelector} from "../MCSelector";
+import {CSS_CLASS_STATE_PREFIX} from "../MCGlobals";
 
 export class MCQuestionView {
 
     public static updateStateClass(questionModel: QuestionModel) {
 
-        let question: HTMLElement = Selector.getQuestion(questionModel.getId());
+        let question: HTMLElement = MCSelector.getQuestion(questionModel.getId());
 
         this.cleanState(question);
         this.updateCurrentState(questionModel, question);

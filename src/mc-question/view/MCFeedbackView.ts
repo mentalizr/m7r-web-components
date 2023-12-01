@@ -1,19 +1,19 @@
 import {QuestionModel} from "../model/QuestionModel";
-import {Selector} from "../Selector";
-import {CSS_CLASS_BS_D_INLINE_BLOCK, CSS_CLASS_BS_D_NONE} from "../Globals";
+import {MCSelector} from "../MCSelector";
+import {CSS_CLASS_BS_D_INLINE_BLOCK, CSS_CLASS_BS_D_NONE} from "../MCGlobals";
 
 export class MCFeedbackView {
 
     public static updateFeedback(questionModel: QuestionModel) {
 
-        let feedbackSuccess: HTMLElement = Selector.getFeedbackSuccess(questionModel.getId());
+        let feedbackSuccess: HTMLElement = MCSelector.getFeedbackSuccess(questionModel.getId());
         if (questionModel.isShowFeedbackSuccess()) {
             MCFeedbackView.showFeedback(feedbackSuccess);
         } else {
             MCFeedbackView.hideFeedback(feedbackSuccess);
         }
 
-        let feedbackFail: HTMLElement = Selector.getFeedbackFail(questionModel.getId());
+        let feedbackFail: HTMLElement = MCSelector.getFeedbackFail(questionModel.getId());
         if (questionModel.isShowFeedbackFail()) {
             MCFeedbackView.showFeedback(feedbackFail);
         } else {

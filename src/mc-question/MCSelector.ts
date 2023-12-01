@@ -6,9 +6,9 @@ import {
     CSS_CLASS_MC_ONE,
     CSS_CLASS_MC_OPTION,
     CSS_CLASS_MC_OPTION_CORRECT
-} from "./Globals";
+} from "./MCGlobals";
 
-export class Selector {
+export class MCSelector {
 
     public static getQuestion(questionID: string): HTMLElement {
         const selector = "#" + questionID;

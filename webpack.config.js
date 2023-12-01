@@ -61,6 +61,16 @@ module.exports = {
                 directory: path.join(__dirname, 'node_modules/bootstrap/dist/css'),
                 publicPath: '/bootstrap',
                 serveIndex: true,
+            },
+            {
+                directory: path.join(__dirname, 'node_modules/bootstrap-icons/font'),
+                publicPath: '/bootstrap-icons',
+                serveIndex: true,
+            },
+            {
+                directory: path.join(__dirname, 'media'),
+                publicPath: '/media',
+                serveIndex: true,
             }
 
         ]

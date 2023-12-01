@@ -160,4 +160,125 @@
     content: "\e984";
 }
 
+/* MultiAudioPlayer */
 
+.m7r-ma-play-pause-button {
+    color: #2a4244;
+    font-size: 50px;
+    margin: 10px;
+    border: none;
+    padding: 0;
+}
+
+.m7r-ma-play-pause-button:hover {
+    cursor: pointer;
+}
+
+.m7r-ma-loop-button.active {
+    background-color: #2a4244;
+    color: white;
+    border-radius: 25px;
+}
+
+.slider-toolbar i {
+    color: #2a4244;
+    font-size: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    touch-action: auto;
+}
+
+.slider-toolbar i:hover {
+    background-color: #2a4244;
+    color: white;
+    border-radius: 25px;
+}
+
+.slider-toolbar div {
+    gap: 10px;
+}
+
+.m7r-ma-playlist button {
+    background-color: transparent;
+    border-color: #4e73df;
+    color: #4e73df;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.m7r-ma-playlist button:hover {
+    background-color: #4e73df;
+    color: #fff;
+}
+
+.m7r-ma-playlist button.active, .m7r-ma-playlist button:active {
+    background-color: #4e73df !important;
+    color: #fff;
+}
+
+.m7r-ma-volume-slider {
+    height: 10px;
+    background: #e6effc;
+    outline: none;
+    opacity: 0.7;
+    -webkit-appearance: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    cursor: pointer;
+}
+
+.m7r-ma-volume-slider:hover {
+    opacity: 1;
+}
+
+.m7r-ma-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 10px;
+    width: 10px;
+    height: 10px;
+    background: #2a4244;
+    cursor: pointer;
+}
+
+.m7r-ma-volume-slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: #2a4244;
+    cursor: pointer;
+}
+
+.m7r-ma-progressBar {
+    -webkit-appearance: none;
+    height: 10px;
+    background: #e6effc;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    cursor: pointer;
+}
+
+.m7r-ma-progressBar:hover {
+    opacity: 1;
+}
+
+.m7r-ma-progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 15px;
+    width: 15px;
+    height: 15px;
+    background: #2a4244;
+    cursor: pointer;
+}
+
+.m7r-ma-progressBar::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #2a4244;
+    cursor: pointer;
+}

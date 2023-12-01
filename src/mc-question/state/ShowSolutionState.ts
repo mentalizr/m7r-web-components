@@ -1,5 +1,5 @@
 import {AbstractState} from "./AbstractState";
-import {CSS_CLASS_STATE_SHOW_SOLUTION} from "../Globals";
+import {CSS_CLASS_STATE_SHOW_SOLUTION} from "../MCGlobals";
 import {QuestionModel} from "../model/QuestionModel";
 import {AnsweringState} from "./AnsweringState";
 import {MCView} from "../view/MCView";
