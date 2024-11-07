@@ -14,10 +14,6 @@ Under development.
 
     ./node_modules/.bin/webpack
     
-or
-
-    gradle webpack
-    
 ## See demo
 
     ./node_modules/.bin/webpack-dev-server
@@ -28,6 +24,10 @@ Call
 * [http://127.0.0.1:8080/html/demo-mulitAudio.html](http://127.0.0.1:8080/html/demo-multiAudio.html)
 
 in your browser.
+
+## Usage
+
+To be imported into .ts files of super project. Compile resources are included into webpack artifact by following references.
 
 ## License
 
